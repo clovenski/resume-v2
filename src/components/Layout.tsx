@@ -15,7 +15,7 @@ export default function Layout() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <header className="border-b border-slate-200 dark:border-slate-800">
-        <nav className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+        <nav className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-y-1 px-4 py-3">
           <div className="flex gap-1">
             <NavLink to="/" end className={navLinkClasses}>
               Home
@@ -51,7 +51,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <footer className="border-t border-slate-200 py-6 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
-        Joel Tengco
+        Last modified: 2026-08-17
       </footer>
     </div>
   )
