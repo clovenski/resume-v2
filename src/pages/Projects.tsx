@@ -1,5 +1,5 @@
 import ProjectCard from '../components/ProjectCard'
-import IsolationGame from '../components/isolation-ai/IsolationGame.tsx'
+import IsolationGame from '../components/isolation-ai/Game'
 import { projects } from '../data/projects'
 
 export default function Projects() {

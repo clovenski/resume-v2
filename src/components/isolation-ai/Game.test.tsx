@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import IsolationGame from './IsolationGame.tsx'
+import IsolationGame from './Game'
 import * as isolationApi from './isolationApi'
 
 describe('IsolationGame', () => {
