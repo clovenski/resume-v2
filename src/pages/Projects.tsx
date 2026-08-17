@@ -1,4 +1,5 @@
 import ProjectCard from '../components/ProjectCard'
+import IsolationGame from '../components/isolation-ai/IsolationGame.tsx'
 import { projects } from '../data/projects'
 
 export default function Projects() {
@@ -28,7 +29,9 @@ export default function Projects() {
           cannot be occupied again. The goal of the game is to isolate your opponent so they don't have any legal
           moves on their next turn.
         </p>
-        <p className="mt-4 text-sm italic text-slate-500 dark:text-slate-400">Game coming soon.</p>
+        <div className="mt-4">
+          <IsolationGame />
+        </div>
       </article>
 
       <ProjectCard project={dtmSimulator} />
