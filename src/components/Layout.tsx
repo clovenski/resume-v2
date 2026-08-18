@@ -23,9 +23,6 @@ export default function Layout() {
             <NavLink to="/projects" className={navLinkClasses}>
               Projects
             </NavLink>
-            <NavLink to="/hobbies" className={navLinkClasses}>
-              Hobbies
-            </NavLink>
           </div>
           <div className="flex gap-1">
             <a
