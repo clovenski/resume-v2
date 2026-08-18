@@ -55,7 +55,7 @@ export default function IsolationGame() {
   }
 
   return (
-    <div className="flex flex-col gap-4 sm:flex-row">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
       <IsolationBoard board={board} interactive={status === 'awaiting-player'} onMove={handlePlayerMove} />
       <div className="flex flex-col gap-3 sm:w-56">
         <MoveHistory playerMoves={playerMoves} compMoves={compMoves} />
