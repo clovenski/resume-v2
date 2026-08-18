@@ -4,8 +4,9 @@ export interface Project {
   period: string
   learningOutcomes: string[]
   description: string
+  demoVideo?: string
   images?: string[]
-  videoUrl?: string
+  fullVideoUrl?: string
 }
 
 export const projects: Project[] = [
@@ -15,8 +16,8 @@ export const projects: Project[] = [
     learningOutcomes: ['Agentic AI development with Claude'],
     description:
       'Proof of concept for a platform that hosts meet and greets between VTubers and their fans.',
-    // TODO: set once the teaser gif is ready, e.g. images: ['assets/vtuber_meet_greet_poc.gif']
-    // TODO: set once the full demo is uploaded, e.g. videoUrl: 'https://youtube.com/watch?v=...'
+    demoVideo: 'assets/vmg-demo-short-compressed.mp4',
+    // TODO: set once the full demo is uploaded, e.g. fullVideo: 'https://youtube.com/watch?v=...'
   },
   {
     title: 'VTuber Schedules',

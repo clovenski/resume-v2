@@ -28,6 +28,14 @@ export default function ProjectCard({ project }: { project: Project }) {
         </ul>
       </div>
       {project.description && <p className="mt-3 text-slate-600 dark:text-slate-300">{project.description}</p>}
+      {project.demoVideo && (
+        <div className="mt-4">
+          <video autoPlay muted loop playsInline className="max-h-64 rounded-md border border-slate-200 dark:border-slate-800">
+            <source src={asset(project.demoVideo)} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
       {project.images && (
         <div className="mt-4 flex flex-wrap gap-3">
           {project.images.map((image) => (
@@ -40,10 +48,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
       )}
-      {project.videoUrl && (
+      {project.fullVideoUrl && (
         <p className="mt-3">
           <a
-            href={project.videoUrl}
+            href={project.fullVideoUrl}
             target="_blank"
             rel="noreferrer"
             className="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
