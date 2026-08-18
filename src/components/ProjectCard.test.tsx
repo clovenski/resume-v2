@@ -12,7 +12,7 @@ const baseProject: Project = {
 
 describe('ProjectCard', () => {
   it('renders a "Watch full demo" link when videoUrl is set', () => {
-    render(<ProjectCard project={{ ...baseProject, videoUrl: 'https://youtube.com/watch?v=abc123' }} />)
+    render(<ProjectCard project={{ ...baseProject, fullVideoUrl: 'https://youtube.com/watch?v=abc123' }} />)
 
     expect(screen.getByRole('link', { name: /watch full demo/i })).toHaveAttribute(
       'href',
