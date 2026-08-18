@@ -5,9 +5,19 @@ export interface Project {
   learningOutcomes: string[]
   description: string
   images?: string[]
+  videoUrl?: string
 }
 
 export const projects: Project[] = [
+  {
+    title: 'VTuber Meet and Greets POC',
+    period: 'Aug 2026',
+    learningOutcomes: ['Agentic AI development with Claude'],
+    description:
+      'Proof of concept for a platform that hosts meet and greets between VTubers and their fans.',
+    // TODO: set once the teaser gif is ready, e.g. images: ['assets/vtuber_meet_greet_poc.gif']
+    // TODO: set once the full demo is uploaded, e.g. videoUrl: 'https://youtube.com/watch?v=...'
+  },
   {
     title: 'VTuber Schedules',
     href: 'https://vtuberschedules.com/',

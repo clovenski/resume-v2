@@ -40,6 +40,18 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
       )}
+      {project.videoUrl && (
+        <p className="mt-3">
+          <a
+            href={project.videoUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+          >
+            Watch full demo &rarr;
+          </a>
+        </p>
+      )}
     </article>
   )
 }

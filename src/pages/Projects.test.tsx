@@ -3,9 +3,10 @@ import { describe, expect, it } from 'vitest'
 import Projects from './Projects'
 
 describe('Projects page', () => {
-  it('renders all five project titles', () => {
+  it('renders all six project titles', () => {
     render(<Projects />)
 
+    expect(screen.getByRole('heading', { name: 'VTuber Meet and Greets POC' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'VTuber Schedules' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Nijisanji EN Schedules' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Isolation AI' })).toBeInTheDocument()

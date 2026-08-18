@@ -3,10 +3,11 @@ import IsolationGame from '../components/isolation-ai/Game'
 import { projects } from '../data/projects'
 
 export default function Projects() {
-  const [vtuberSchedules, nijisanji, dtmSimulator, circuitSimulator] = projects
+  const [vtuberMeetGreets, vtuberSchedules, nijisanji, dtmSimulator, circuitSimulator] = projects
 
   return (
     <div className="flex flex-col gap-6">
+      <ProjectCard project={vtuberMeetGreets} />
       <ProjectCard project={vtuberSchedules} />
       <ProjectCard project={nijisanji} />
 
