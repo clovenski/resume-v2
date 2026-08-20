@@ -26,7 +26,7 @@ export const profile = {
   location: 'Los Angeles, United States',
   email: 'joeltengco3510@gmail.com',
   summary:
-    'Software engineer with a passion towards devops and infrastructure engineering. Learns, adapts, and delivers code at a high velocity. High quality code design, documentation, and testing are my pillars in software engineering.',
+    'Senior software engineer specializing in high-scale, reliability-critical backend systems — most recently payments infrastructure that processed $13.2B in transaction volume for 4.4M customers. Learns fast and ships at high velocity, with rigorous system design, testing, and documentation as core disciplines.',
 }
 
 export const links = [
@@ -42,9 +42,9 @@ export const employment: EmploymentEntry[] = [
     location: 'Los Angeles',
     period: 'Aug 2024 — Jul 2026',
     bullets: [
-      "Developed the core backend service behind funds distribution within Intuit's Turbo Tax 5 Days Early program; major contribution being developing a platform that we used for consuming webhooks from our third-party vendor.",
-      'Developed core backend components of a throttling and prioritization platform that optimized ACH and RTP payment processing by prioritizing time-sensitive ACH transfers while enforcing third-party API rate limits at scale; enabling the delivery of $13.2B in tax refunds to 4.4M customers during tax year 2025.',
-      'Leveraged Claude, Cursor, Augment, and custom Claude skills/commands to automate development workflows, accelerate implementation, and reduce engineering toil.',
+      'Built the throttling and prioritization platform behind $13.2B in tax refunds delivered to 4.4M customers in the 2026 tax season, throttling ACH and RTP payment processing to 200 TPS and prioritizing time-sensitive ACH transfers as per third-party vendor rate limits.',
+      "Owned the core backend service behind funds distribution for Turbo Tax's 5 Days Early program, including a webhook ingestion platform, built on an in-house JavaScript-based framework, that processed 14M+ vendor events during the 2026 tax season (Jan–Jun).",
+      "Designed core components of the throttling platform — including its DynamoDB data model, background job orchestration, and graceful shutdown mechanism — and led its performance testing; staffed the launch war room during the platform's rollout in the 2026 tax season.",
     ],
   },
   {
@@ -53,10 +53,9 @@ export const employment: EmploymentEntry[] = [
     location: 'Los Angeles',
     period: 'May 2022 — Aug 2024',
     bullets: [
-      "Contributed to launching the service that provides the capability for Intuit's QuickBooks users to buy, sell, and hold cryptocurrencies.",
-      'Served as Operational Excellence Champion across three engineering teams, driving initiatives focused on code coverage, disaster recovery readiness, and security.',
-      'Spearheaded backend development for a generative AI initiative enabling QuickBooks customers to take action directly from customer email interactions.',
-      'Developed a proof of concept leveraging generative AI to assist engineers in resolving support channel inquiries and improving developer productivity.',
+      "Built the trade execution and end-of-day reconciliation layer for QuickBooks' crypto trading service, integrating pass-through order execution with a third-party vendor's APIs to enable QuickBooks users to buy, sell, and hold cryptocurrency.",
+      'Served as the designated Operational Excellence Champion, coordinating code coverage, disaster recovery readiness, and security priorities between engineering leadership and three engineering teams.',
+      'Spearheaded backend development for a generative AI prototype, built during a company-wide two-week hackathon, that let QuickBooks customers take action directly from email interactions.',
     ],
   },
   {
@@ -65,9 +64,9 @@ export const employment: EmploymentEntry[] = [
     location: 'Irvine',
     period: 'Sept 2019 — May 2022',
     bullets: [
-      'Provide organizations a digital asset management web application completely suited to their needs and custom workflows.',
-      'Developed a proprietary monitoring solution to eliminate the toil around producing debug analysis files of the app.',
-      'Developed a background cron job that maintains consistency in a graph-structured database table that contains over 50M records.',
+      'Delivered digital asset management deployments for roughly 30 client organizations, implementing bespoke workflows on a proprietary C# framework backed by SQL Server.',
+      'Built an internal observability tool that automated generation of application debug analysis files, saving an estimated 10 minutes per incident.',
+      'Built a scheduled reconciliation job that enforced referential integrity across a 50M+ record graph-structured dataset modeling relationships between digital assets, eliminating orphaned records.',
     ],
   },
 ]
