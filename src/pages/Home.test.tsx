@@ -8,13 +8,13 @@ describe('Home page', () => {
 
     expect(screen.getByRole('heading', { name: 'Joel Tengco' })).toBeInTheDocument()
     expect(screen.getByText('Senior Software Engineer')).toBeInTheDocument()
-    expect(screen.getByText(/Software engineer with a passion towards devops/)).toBeInTheDocument()
+    expect(screen.getByText(/Senior software engineer specializing in high-scale/)).toBeInTheDocument()
   })
 
   it('renders all three employment history entries', () => {
     render(<Home />)
 
-    expect(screen.getByText(/Senior Software Engineer — Intuit, Los Angeles, CA/)).toBeInTheDocument()
+    expect(screen.getByText(/Senior Software Engineer — Intuit, Los Angeles/)).toBeInTheDocument()
     expect(screen.getByText(/Software Engineer II — Intuit, Los Angeles/)).toBeInTheDocument()
     expect(screen.getByText(/Software Engineer — Orange Logic, Irvine/)).toBeInTheDocument()
   })
