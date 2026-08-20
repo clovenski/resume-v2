@@ -18,7 +18,6 @@ export const projects: Project[] = [
     description:
       'Proof of concept for a platform that hosts meet and greets between VTubers and their fans.',
     demoVideo: 'assets/vmg-demo-short-compressed.mp4',
-    // TODO: set once the full demo is uploaded, e.g. fullVideo: 'https://youtube.com/watch?v=...'
     fullVideoUrl: 'https://youtu.be/uYnrQZebZng',
   },
   {

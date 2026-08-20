@@ -39,7 +39,7 @@ export const employment: EmploymentEntry[] = [
   {
     title: 'Senior Software Engineer',
     company: 'Intuit',
-    location: 'Los Angeles, CA',
+    location: 'Los Angeles',
     period: 'Aug 2024 — Jul 2026',
     bullets: [
       "Developed the core backend service behind funds distribution within Intuit's Turbo Tax 5 Days Early program; major contribution being developing a platform that we used for consuming webhooks from our third-party vendor.",
