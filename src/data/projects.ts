@@ -7,6 +7,7 @@ export interface Project {
   demoVideo?: string
   images?: string[]
   fullVideoUrl?: string
+  architectureDiagram?: string
 }
 
 export const projects: Project[] = [
@@ -31,10 +32,10 @@ export const projects: Project[] = [
     ],
     description:
       'Improved and generalized version of Nijisanji EN schedules; hosting schedules for VTubers of multiple platforms and agencies.',
+    architectureDiagram: 'assets/vtuber-schedules-architecture.png',
   },
   {
     title: 'Nijisanji EN Schedules',
-    href: 'https://nijisanji-en-schedules.com/',
     period: '2022',
     learningOutcomes: ['Full stack engineering', 'AWS - API Gateway, Lambda, DynamoDB, Route53', 'Angular'],
     description: 'Single page to quickly view Nijisanji EN stream schedules.',
