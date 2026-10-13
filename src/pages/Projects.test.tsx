@@ -1,17 +1,16 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+import { projects } from '../data/projects'
 import Projects from './Projects'
 
 describe('Projects page', () => {
-  it('renders all six project titles', () => {
+  it('renders a heading for every project in the data, plus Isolation AI', () => {
     render(<Projects />)
 
-    expect(screen.getByRole('heading', { name: 'VTuber Meet and Greets POC' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'VTuber Schedules' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Nijisanji EN Schedules' })).toBeInTheDocument()
+    for (const { title } of projects) {
+      expect(screen.getByRole('heading', { name: title })).toBeInTheDocument()
+    }
     expect(screen.getByRole('heading', { name: 'Isolation AI' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Deterministic Turing Machine Simulator' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Circuit Simulator' })).toBeInTheDocument()
   })
 
   it('links each project title to its external URL where applicable', () => {

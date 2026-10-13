@@ -2,14 +2,19 @@ import ProjectCard from '../components/ProjectCard'
 import IsolationGame from '../components/isolation-ai/Game'
 import { projects } from '../data/projects'
 
-export default function Projects() {
-  const [vtuberMeetGreets, vtuberSchedules, nijisanji, dtmSimulator, circuitSimulator] = projects
+// The Isolation AI card is rendered right after this project.
+const ISOLATION_AI_AFTER = 'Nijisanji EN Schedules'
 
+const isolationIndex = projects.findIndex((project) => project.title === ISOLATION_AI_AFTER) + 1
+const projectsBeforeIsolation = projects.slice(0, isolationIndex)
+const projectsAfterIsolation = projects.slice(isolationIndex)
+
+export default function Projects() {
   return (
     <div className="flex flex-col gap-6">
-      <ProjectCard project={vtuberMeetGreets} />
-      <ProjectCard project={vtuberSchedules} />
-      <ProjectCard project={nijisanji} />
+      {projectsBeforeIsolation.map((project) => (
+        <ProjectCard key={project.title} project={project} />
+      ))}
 
       <article className="rounded-lg border border-slate-200 p-6 dark:border-slate-800">
         <h3 className="text-lg font-semibold">Isolation AI</h3>
@@ -35,8 +40,9 @@ export default function Projects() {
         </div>
       </article>
 
-      <ProjectCard project={dtmSimulator} />
-      <ProjectCard project={circuitSimulator} />
+      {projectsAfterIsolation.map((project) => (
+        <ProjectCard key={project.title} project={project} />
+      ))}
 
       <p className="text-sm text-slate-500 dark:text-slate-400">
         You can check more projects showcased on my{' '}
