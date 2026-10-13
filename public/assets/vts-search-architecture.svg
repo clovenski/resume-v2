@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="744" viewBox="0 0 680 744" role="img">
+<title>VTuber Schedules search pipeline</title>
+<desc>A Lambda updates the Streams DynamoDB table. Item changes flow through a stream to a collector Lambda that filters no-op changes, stages deltas in SearchSync (DynamoDB), and queues a delayed message. A rebuilder Lambda merges changes into a gzipped JSON file in S3 using a hash check and conditional write. Failed messages go to a dead-letter queue. CloudFront serves the file to the Angular app, which searches in the browser with MiniSearch.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;text-anchor:middle;dominant-baseline:central}
+.th{font-size:14px;font-weight:600}
+.ts{font-size:12px;font-weight:400}
+.lbl{font-size:14px;font-weight:600;text-anchor:start;fill:#2C2C2A}
+.leg{font-size:12px;text-anchor:start;fill:#5F5E5A}
+.pb{fill:#EEEDFE;stroke:#534AB7;stroke-width:.5}
+.pt{fill:#3C3489}
+.ps{fill:#534AB7}
+.tb{fill:#E1F5EE;stroke:#0F6E56;stroke-width:.5}
+.tt{fill:#085041}
+.tsb{fill:#0F6E56}
+.gb{fill:#F1EFE8;stroke:#888780;stroke-width:.5}
+.gt{fill:#2C2C2A}
+.gs{fill:#5F5E5A}
+.dash{stroke-dasharray:4 3}
+.arr{stroke:#5F5E5A;stroke-width:1.5;fill:none}
+.leader{stroke:#888780;stroke-width:.75;stroke-dasharray:3 3;fill:none}
+.cont{fill:none;stroke:#B4B2A9;stroke-width:.75;stroke-dasharray:4 4}
+</style>
+</defs>
+
+<rect width="680" height="744" fill="#FFFFFF"/>
+
+<rect class="cont" x="14" y="30" width="662" height="420" rx="12"/>
+<text class="lbl" x="30" y="52">Write path (event-driven)</text>
+
+<rect class="gb dash" x="489" y="46" width="170" height="44" rx="8"/>
+<text class="th gt" x="574" y="60">Change filter</text>
+<text class="ts gs" x="574" y="77">Skips no-op writes</text>
+<line class="leader" x1="574" y1="90" x2="574" y2="108"/>
+
+<rect class="pb" x="30" y="110" width="170" height="76" rx="8"/>
+<text class="th pt" x="115" y="130">Stream Schedules</text>
+<text class="th pt" x="115" y="148">Updater Lambda</text>
+<text class="ts ps" x="115" y="169">Every ~5 min</text>
+
+<rect class="tb" x="228" y="110" width="125" height="76" rx="8"/>
+<text class="th tt" x="290" y="138">Streams</text>
+<text class="ts tsb" x="290" y="158">DynamoDB</text>
+
+<rect class="tb" x="381" y="110" width="125" height="76" rx="8"/>
+<text class="th tt" x="443" y="138">Change stream</text>
+<text class="ts tsb" x="443" y="158">Old + new images</text>
+
+<rect class="pb" x="534" y="110" width="125" height="76" rx="8"/>
+<text class="th pt" x="596" y="138">Collector</text>
+<text class="ts ps" x="596" y="158">Lambda</text>
+
+<line class="arr" x1="200" y1="148" x2="226" y2="148" marker-end="url(#arrow)"/>
+<line class="arr" x1="353" y1="148" x2="379" y2="148" marker-end="url(#arrow)"/>
+<line class="arr" x1="506" y1="148" x2="532" y2="148" marker-end="url(#arrow)"/>
+
+<rect class="gb dash" x="30" y="250" width="323" height="56" rx="8"/>
+<text class="th gt" x="191" y="269">Debounce rules</text>
+<text class="ts gs" x="191" y="288">10 s quiet or 60 s max wait</text>
+<line class="leader" x1="353" y1="278" x2="379" y2="278"/>
+
+<rect class="tb" x="381" y="250" width="125" height="56" rx="8"/>
+<text class="th tt" x="443" y="269">SearchSync</text>
+<text class="ts tsb" x="443" y="288">DynamoDB</text>
+
+<rect class="tb" x="534" y="250" width="125" height="56" rx="8"/>
+<text class="th tt" x="596" y="269">SQS queue</text>
+<text class="ts tsb" x="596" y="288">10 s delay</text>
+
+<line class="arr" x1="596" y1="186" x2="596" y2="248" marker-end="url(#arrow)"/>
+<path class="arr" d="M560 186 L560 218 L443 218 L443 248" marker-end="url(#arrow)"/>
+
+<rect class="gb dash" x="30" y="370" width="170" height="56" rx="8"/>
+<text class="th gt" x="115" y="389">Safe writes</text>
+<text class="ts gs" x="115" y="408">Hash skip + If-Match</text>
+<line class="leader" x1="200" y1="398" x2="226" y2="398"/>
+
+<rect class="tb" x="228" y="370" width="125" height="56" rx="8"/>
+<text class="th tt" x="290" y="389">S3 object</text>
+<text class="ts tsb" x="290" y="408">Gzipped JSON</text>
+
+<rect class="pb" x="381" y="370" width="125" height="56" rx="8"/>
+<text class="th pt" x="443" y="389">Rebuilder</text>
+<text class="ts ps" x="443" y="408">Lambda</text>
+
+<rect class="tb" x="534" y="370" width="125" height="56" rx="8"/>
+<text class="th tt" x="596" y="389">DLQ</text>
+<text class="ts tsb" x="596" y="408">After retries</text>
+
+<line class="arr" x1="420" y1="308" x2="420" y2="368" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<path class="arr" d="M550 306 L550 338 L480 338 L480 368" marker-end="url(#arrow)"/>
+<line class="arr dash" x1="620" y1="308" x2="620" y2="368" marker-end="url(#arrow)"/>
+<line class="arr" x1="379" y1="398" x2="355" y2="398" marker-end="url(#arrow)"/>
+
+<rect class="cont" x="14" y="470" width="662" height="222" rx="12"/>
+<text class="lbl" x="30" y="492">Read path (client-side search)</text>
+
+<rect class="tb" x="228" y="510" width="125" height="56" rx="8"/>
+<text class="th tt" x="290" y="529">CloudFront</text>
+<text class="ts tsb" x="290" y="548">Edge cache + OAC</text>
+
+<rect class="gb" x="381" y="510" width="125" height="56" rx="8"/>
+<text class="th gt" x="443" y="529">Angular app</text>
+<text class="ts gs" x="443" y="548">Loads file once</text>
+
+<rect class="gb" x="534" y="510" width="125" height="56" rx="8"/>
+<text class="th gt" x="596" y="529">MiniSearch</text>
+<text class="ts gs" x="596" y="548">Runs in browser</text>
+
+<line class="arr" x1="290" y1="428" x2="290" y2="508" marker-end="url(#arrow)"/>
+<line class="arr" x1="355" y1="538" x2="379" y2="538" marker-end="url(#arrow)"/>
+<line class="arr" x1="508" y1="538" x2="532" y2="538" marker-end="url(#arrow)"/>
+
+<line class="leader" x1="596" y1="566" x2="596" y2="594"/>
+<rect class="gb dash" x="306" y="596" width="353" height="76" rx="8"/>
+<text class="th gt" x="482" y="614">Why search runs client-side</text>
+<text class="ts gs" x="482" y="636">Managed Elasticsearch/OpenSearch: $20+/mo</text>
+<text class="ts gs" x="482" y="654">Search index projection stays under 4 MB</text>
+
+<rect class="pb" x="30" y="712" width="12" height="12" rx="2"/>
+<text class="leg" x="48" y="718">Compute</text>
+<rect class="tb" x="130" y="712" width="12" height="12" rx="2"/>
+<text class="leg" x="148" y="718">Storage and queues</text>
+<rect class="gb" x="290" y="712" width="12" height="12" rx="2"/>
+<text class="leg" x="308" y="718">Client and external</text>
+<rect class="gb dash" x="450" y="712" width="12" height="12" rx="2"/>
+<text class="leg" x="468" y="718">Design callout</text>
+</svg>

@@ -12,6 +12,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'VTuber Schedules Search',
+    href: 'https://vtuberschedules.com/',
+    period: 'Oct 10, 2026 - Oct 12, 2026',
+    learningOutcomes: [
+      'Agentic AI development with Claude Code',
+      'Event-driven architecture',
+      'AWS - DynamoDB Streams, SQS, S3, Lambda, CloudFront, Cloud Development Kit',
+      'Angular',
+    ],
+    description:
+      'Search for VTuber Schedules, designed with Claude and built in 3 days using Claude Code for the infrastructure as code and the Angular frontend. DynamoDB changes are debounced and merged into a compact gzipped index in S3, served through CloudFront and searched in the browser with MiniSearch, avoiding the $20+/mo cost of a managed search service. Biggest cost factor is the Lambda request cound due to DynamoDB streams, and Cloudwatch alarms. I expect around $3/mo max additional cost here.',
+    architectureDiagram: 'assets/vts-search-architecture.svg',
+  },
+  {
     title: 'VTuber Meet and Greets POC',
     href: 'https://youtu.be/uYnrQZebZng',
     period: 'Aug 2026',
