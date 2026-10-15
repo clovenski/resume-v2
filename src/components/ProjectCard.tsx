@@ -43,20 +43,20 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.description && <p className="mt-3 text-slate-600 dark:text-slate-300">{project.description}</p>}
         {project.demoVideo && (
           <div className="mt-4">
-            <video autoPlay muted loop playsInline className="max-h-64 rounded-md border border-slate-200 dark:border-slate-800">
+            <video autoPlay muted loop playsInline className="h-auto w-full rounded-md border border-slate-200 dark:border-slate-800">
               <source src={asset(project.demoVideo)} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
         )}
         {project.images && (
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-4 flex flex-wrap items-start gap-3">
             {project.images.map((image) => (
               <img
                 key={image}
                 src={asset(image)}
                 alt={`${project.title} screenshot`}
-                className="max-h-64 rounded-md border border-slate-200 dark:border-slate-800"
+                className="h-auto min-w-0 flex-1 basis-64 rounded-md border border-slate-200 dark:border-slate-800"
               />
             ))}
           </div>
